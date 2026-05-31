@@ -2,6 +2,22 @@ from pathlib import Path
 import os
 import dj_database_url
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:5174", 
+    "https://drip-dz.vercel.app",
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'origin',
+    'x-csrftoken',
+    'x-requested-with',
+]
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ew1(^iu5iq(o1609av)6pc%q$il#2-r7uox(0@#u6aebvr5*t!')
@@ -103,7 +119,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -121,9 +137,3 @@ cloudinary.config(
     api_key=os.environ.get('CLOUDINARY_API_KEY', '619253574545499'),
     api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'GgtmSeVPgocXI6D5nQnDVXCB__M'),
 )
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "https://drip-dz.vercel.app",
-]
-CORS_ALLOW_ALL_ORIGINS = True
