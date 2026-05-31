@@ -16,7 +16,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
@@ -85,9 +84,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
@@ -119,8 +115,9 @@ DEFAULT_FROM_EMAIL = 'DRIP Store <ghoufranedaikra01@gmail.com>'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'dgte2k160'),
-    'API_KEY': os.environ.get('CLOUDINARY_API_KEY', '619253574545499'),
-    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'GgtmSeVPgocXI6D5nQnDVXCB__M'),
-}
+import cloudinary
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dgte2k160'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY', '619253574545499'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'GgtmSeVPgocXI6D5nQnDVXCB__M'),
+)
