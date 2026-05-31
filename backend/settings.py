@@ -121,3 +121,9 @@ cloudinary.config(
     api_key=os.environ.get('CLOUDINARY_API_KEY', '619253574545499'),
     api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'GgtmSeVPgocXI6D5nQnDVXCB__M'),
 )
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://drip-dz.vercel.app",
+]
+CORS_ALLOW_ALL_ORIGINS = True
