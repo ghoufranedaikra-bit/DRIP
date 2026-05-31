@@ -16,7 +16,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'rest_framework',
     'django_filters',
     'corsheaders',
@@ -108,3 +110,10 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'ogha ptnl wxiq hbmz
 DEFAULT_FROM_EMAIL = 'DRIP Store <ghoufranedaikra01@gmail.com>'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'dgte2k160'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY', '619253574545499'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'GgtmSeVPgocXI6D5nQnDVXCB__M'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
